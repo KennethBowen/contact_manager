@@ -19,6 +19,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'rails-controller-testing', '~> 1.0', '>= 1.0.1'
+  gem 'capybara', '~> 2.8'
   gem 'rspec-rails', '~> 3.5'
 end
 
