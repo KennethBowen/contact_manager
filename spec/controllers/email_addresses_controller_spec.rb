@@ -5,9 +5,9 @@ RSpec.describe EmailAddressesController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # EmailAddress. As you add validations to EmailAddress, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {address: 'example@gmail.com', person_id: 1 } }
+  let(:valid_attributes) { {address: 'example@gmail.com', contact_id: 1, contact_type: "Person" } }
 
-  let(:invalid_attributes) { {address: nil, person_id: nil}}
+  let(:invalid_attributes) { {address: nil, contact_id: nil, contact_type: nil}}
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -48,7 +48,7 @@ RSpec.describe EmailAddressesController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       let(:alice)  {Person.create(first_name: 'Alice', last_name: 'Smith')}
-      let(:valid_attributes)  {{ address: 'alice@gmail.com', person_id: alice.id }}
+      let(:valid_attributes)  {{ address: 'alice@gmail.com', contact_id: alice.id, contact_type: "Person" }}
 
       it "creates a new EmailAddress" do
         expect {
@@ -84,7 +84,7 @@ RSpec.describe EmailAddressesController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:alice) { Person.create(first_name: 'Alice', last_name: 'Smith') }
-      let(:valid_attributes) { { address: 'alice@gmail.com', person_id: alice.id } }
+      let(:valid_attributes) { { address: 'alice@gmail.com', contact_id: alice.id, contact_type: "Person" } }
 
       it "updates the requested email_address" do
         email_address = EmailAddress.create! valid_attributes
@@ -102,7 +102,7 @@ RSpec.describe EmailAddressesController, type: :controller do
       it "redirects to the email_address" do
         email_address = EmailAddress.create! valid_attributes
         put :update, params: {id: email_address.to_param, email_address: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(email_address.person)
+        expect(response).to redirect_to(email_address.contact)
       end
     end
 

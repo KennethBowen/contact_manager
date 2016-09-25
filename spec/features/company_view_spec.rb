@@ -66,9 +66,6 @@ require 'rails_helper'
         end
       end
 
-      it 'has a link to add a new email address' do
-        expect(page).to have_link('Add email address', href: new_email_address_path(company_id: company.id))
-      end
 
       it 'adds a new email address' do
         page.click_link('Add email address')

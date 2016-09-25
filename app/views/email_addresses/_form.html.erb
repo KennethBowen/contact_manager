@@ -17,9 +17,15 @@
   </div>
 
   <div class="field">
-    <%= f.label :person_id %>
-    <%= f.number_field :person_id %>
+    <%= f.label :contact_id %>
+    <%= f.number_field :contact_id %>
   </div>
+
+  <div class="field">
+    <%= f.hidden_field :contact_type %>
+  </div>  
+
+  <div
 
   <div class="actions">
     <%= f.submit %>
