@@ -11,7 +11,7 @@ RSpec.describe Company, type: :model do
     end
 
     it 'is invalid without a company name' do
-      name = Company.new(name: nil)
+      company.name = nil
       expect(company).not_to be_valid
     end
   end
