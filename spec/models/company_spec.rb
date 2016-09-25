@@ -18,8 +18,8 @@ RSpec.describe Company, type: :model do
 
   context "telephone" do
     it 'has an array of phone numbers ' do
-      company.phone_numbers.new(number: "4561-5678")
-      expect(company.phone_numbers.map(&:number)).to eq(["4561-5678"])
+      company.phone_numbers.new(number: "451-5673")
+      expect(company.phone_numbers.map(&:number)).to eq(["451-5673"])
     end
   end
 
