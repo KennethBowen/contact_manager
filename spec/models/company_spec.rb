@@ -14,6 +14,10 @@ RSpec.describe Company, type: :model do
       company.name = nil
       expect(company).not_to be_valid
     end
+
+    it "converts to a string with name" do
+      expect(company.to_s).to eq "derpcorp"
+    end
   end
 
   context "telephone" do
